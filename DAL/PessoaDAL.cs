@@ -53,7 +53,7 @@ namespace DAL
             cmd.Parameters.AddWithValue("@codigo", codigo);
 
             cmd.ExecuteNonQuery();
-
+            
             conn.Close();
         }
         public void AtualizarPessoa(Pessoa objPessoa)
