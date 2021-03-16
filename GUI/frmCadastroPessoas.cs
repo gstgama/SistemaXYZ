@@ -47,5 +47,39 @@ namespace GUI
             //Avisar o usuario que deu bom
             MessageBox.Show("Pessoa inserida com sucesso!");
         }
+
+        private void btnExcluir_Click(object sender, EventArgs e)
+        {
+            int codigo = Convert.ToInt32(txtCodigo.Text);
+
+            if (MessageBox.Show("Deseja realmente excluir este registro?", "Atenção", MessageBoxButtons.YesNo) == DialogResult.Yes) { 
+
+            PessoaDAL pDAL = new PessoaDAL();
+            pDAL.ExcluriPessoa(codigo);
+
+            MessageBox.Show("Pessoa excluida com sucesso!");
+
+                //Metodo em uma linha.
+                //new PessoaDAL().ExcluirPessoa(Convert.ToInt32(txtCodigo.Text));
+            }
+        }
+
+        private void btnAtualizar_Click(object sender, EventArgs e)
+        {
+            Pessoa objPessoa = new Pessoa();
+
+            objPessoa.Codigo = Convert.ToInt32(txtCodigo.Text);
+            objPessoa.Nome = txtNome.Text;
+            objPessoa.Email = txtEmail.Text;
+            objPessoa.Sexo = rbtnMasculino.Checked ? "Masculino" : "Feminino";
+            objPessoa.EstadoCivil = cbEstadosCivis.Text;
+            objPessoa.BtRecebeEmail = chkRecebeEmail.Checked;
+            objPessoa.BtRecebeSMS = chkRecebeSMS.Checked;
+
+            PessoaDAL pDAL = new PessoaDAL();
+            pDAL.AtualizarPessoa(objPessoa);
+
+            MessageBox.Show("Pessoa atualizada com sucesso.");
+        }
     }
 }

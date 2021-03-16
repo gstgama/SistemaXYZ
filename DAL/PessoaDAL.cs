@@ -40,5 +40,42 @@ namespace DAL
             //Fechar a conexão com o banco de dados
             conn.Close();
         }
+
+        public void ExcluriPessoa(int codigo)
+        {
+            SqlConnection conn = new SqlConnection(connectionString);
+
+            conn.Open();
+
+            string sql = "DELETE FROM Pessoas WHERE Codigo = @codigo";
+
+            SqlCommand cmd = new SqlCommand(sql, conn);
+            cmd.Parameters.AddWithValue("@codigo", codigo);
+
+            cmd.ExecuteNonQuery();
+
+            conn.Close();
+        }
+        public void AtualizarPessoa(Pessoa objPessoa)
+        {
+            SqlConnection conn = new SqlConnection(connectionString);
+
+            conn.Open();
+
+            string sql = "UPDATE Pessoas SET Nome = @nome, Email = @email, Sexo = @sexo, EstadoCivil = @estadoCivil, BtRecebeEmail = @btRecebeEmail, BtRecebeSMS = @btRecebeSMS WHERE Codigo = @codigo";
+
+            SqlCommand cmd = new SqlCommand(sql, conn);
+            cmd.Parameters.AddWithValue("@nome", objPessoa.Nome);
+            cmd.Parameters.AddWithValue("@email", objPessoa.Email);
+            cmd.Parameters.AddWithValue("@sexo", objPessoa.Sexo);
+            cmd.Parameters.AddWithValue("@estadoCivil", objPessoa.EstadoCivil);
+            cmd.Parameters.AddWithValue("@btRecebeSMS", objPessoa.BtRecebeSMS);
+            cmd.Parameters.AddWithValue("@btRecebeEmail", objPessoa.BtRecebeEmail);
+            cmd.Parameters.AddWithValue("@codigo", objPessoa.Codigo);
+
+            cmd.ExecuteNonQuery();
+
+            conn.Close();
+        }
     }
 }

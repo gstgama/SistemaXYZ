@@ -43,66 +43,75 @@ namespace GUI
             this.chkRecebeEmail = new System.Windows.Forms.CheckBox();
             this.chkRecebeSMS = new System.Windows.Forms.CheckBox();
             this.btnInserir = new System.Windows.Forms.Button();
+            this.btnExcluir = new System.Windows.Forms.Button();
+            this.btnAtualizar = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lblCodigo
             // 
             this.lblCodigo.AutoSize = true;
             this.lblCodigo.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.lblCodigo.Location = new System.Drawing.Point(128, 66);
+            this.lblCodigo.Location = new System.Drawing.Point(96, 54);
+            this.lblCodigo.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblCodigo.Name = "lblCodigo";
-            this.lblCodigo.Size = new System.Drawing.Size(56, 17);
+            this.lblCodigo.Size = new System.Drawing.Size(43, 13);
             this.lblCodigo.TabIndex = 0;
             this.lblCodigo.Text = "Código:";
             // 
             // lblNome
             // 
             this.lblNome.AutoSize = true;
-            this.lblNome.Location = new System.Drawing.Point(128, 110);
+            this.lblNome.Location = new System.Drawing.Point(96, 89);
+            this.lblNome.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblNome.Name = "lblNome";
-            this.lblNome.Size = new System.Drawing.Size(49, 17);
+            this.lblNome.Size = new System.Drawing.Size(38, 13);
             this.lblNome.TabIndex = 1;
             this.lblNome.Text = "Nome:";
             // 
             // lblEmail
             // 
             this.lblEmail.AutoSize = true;
-            this.lblEmail.Location = new System.Drawing.Point(128, 152);
+            this.lblEmail.Location = new System.Drawing.Point(96, 124);
+            this.lblEmail.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblEmail.Name = "lblEmail";
-            this.lblEmail.Size = new System.Drawing.Size(51, 17);
+            this.lblEmail.Size = new System.Drawing.Size(38, 13);
             this.lblEmail.TabIndex = 2;
             this.lblEmail.Text = "E-mail:";
             // 
             // txtCodigo
             // 
-            this.txtCodigo.Location = new System.Drawing.Point(183, 66);
+            this.txtCodigo.Location = new System.Drawing.Point(137, 54);
+            this.txtCodigo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtCodigo.Name = "txtCodigo";
-            this.txtCodigo.Size = new System.Drawing.Size(100, 22);
+            this.txtCodigo.Size = new System.Drawing.Size(76, 20);
             this.txtCodigo.TabIndex = 3;
             // 
             // txtNome
             // 
-            this.txtNome.Location = new System.Drawing.Point(183, 107);
+            this.txtNome.Location = new System.Drawing.Point(137, 87);
+            this.txtNome.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtNome.MaxLength = 60;
             this.txtNome.Name = "txtNome";
-            this.txtNome.Size = new System.Drawing.Size(291, 22);
+            this.txtNome.Size = new System.Drawing.Size(219, 20);
             this.txtNome.TabIndex = 4;
             // 
             // txtEmail
             // 
-            this.txtEmail.Location = new System.Drawing.Point(183, 149);
+            this.txtEmail.Location = new System.Drawing.Point(137, 121);
+            this.txtEmail.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtEmail.MaxLength = 100;
             this.txtEmail.Name = "txtEmail";
-            this.txtEmail.Size = new System.Drawing.Size(291, 22);
+            this.txtEmail.Size = new System.Drawing.Size(219, 20);
             this.txtEmail.TabIndex = 5;
             // 
             // rbtnMasculino
             // 
             this.rbtnMasculino.AutoSize = true;
             this.rbtnMasculino.Checked = true;
-            this.rbtnMasculino.Location = new System.Drawing.Point(183, 194);
+            this.rbtnMasculino.Location = new System.Drawing.Point(137, 158);
+            this.rbtnMasculino.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.rbtnMasculino.Name = "rbtnMasculino";
-            this.rbtnMasculino.Size = new System.Drawing.Size(92, 21);
+            this.rbtnMasculino.Size = new System.Drawing.Size(73, 17);
             this.rbtnMasculino.TabIndex = 6;
             this.rbtnMasculino.TabStop = true;
             this.rbtnMasculino.Text = "Masculino";
@@ -111,9 +120,10 @@ namespace GUI
             // rbtnFeminino
             // 
             this.rbtnFeminino.AutoSize = true;
-            this.rbtnFeminino.Location = new System.Drawing.Point(364, 194);
+            this.rbtnFeminino.Location = new System.Drawing.Point(273, 158);
+            this.rbtnFeminino.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.rbtnFeminino.Name = "rbtnFeminino";
-            this.rbtnFeminino.Size = new System.Drawing.Size(86, 21);
+            this.rbtnFeminino.Size = new System.Drawing.Size(67, 17);
             this.rbtnFeminino.TabIndex = 7;
             this.rbtnFeminino.Text = "Feminino";
             this.rbtnFeminino.UseVisualStyleBackColor = true;
@@ -121,18 +131,20 @@ namespace GUI
             // lblSexo
             // 
             this.lblSexo.AutoSize = true;
-            this.lblSexo.Location = new System.Drawing.Point(128, 196);
+            this.lblSexo.Location = new System.Drawing.Point(96, 159);
+            this.lblSexo.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblSexo.Name = "lblSexo";
-            this.lblSexo.Size = new System.Drawing.Size(43, 17);
+            this.lblSexo.Size = new System.Drawing.Size(34, 13);
             this.lblSexo.TabIndex = 8;
             this.lblSexo.Text = "Sexo:";
             // 
             // lblEstadoCivil
             // 
             this.lblEstadoCivil.AutoSize = true;
-            this.lblEstadoCivil.Location = new System.Drawing.Point(86, 234);
+            this.lblEstadoCivil.Location = new System.Drawing.Point(64, 190);
+            this.lblEstadoCivil.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblEstadoCivil.Name = "lblEstadoCivil";
-            this.lblEstadoCivil.Size = new System.Drawing.Size(85, 17);
+            this.lblEstadoCivil.Size = new System.Drawing.Size(65, 13);
             this.lblEstadoCivil.TabIndex = 9;
             this.lblEstadoCivil.Text = "Estado Civil:";
             // 
@@ -143,17 +155,19 @@ namespace GUI
             "Solteiro",
             "Casado",
             "Divorciado"});
-            this.cbEstadosCivis.Location = new System.Drawing.Point(183, 231);
+            this.cbEstadosCivis.Location = new System.Drawing.Point(137, 188);
+            this.cbEstadosCivis.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.cbEstadosCivis.Name = "cbEstadosCivis";
-            this.cbEstadosCivis.Size = new System.Drawing.Size(267, 24);
+            this.cbEstadosCivis.Size = new System.Drawing.Size(201, 21);
             this.cbEstadosCivis.TabIndex = 10;
             // 
             // chkRecebeEmail
             // 
             this.chkRecebeEmail.AutoSize = true;
-            this.chkRecebeEmail.Location = new System.Drawing.Point(183, 275);
+            this.chkRecebeEmail.Location = new System.Drawing.Point(137, 223);
+            this.chkRecebeEmail.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.chkRecebeEmail.Name = "chkRecebeEmail";
-            this.chkRecebeEmail.Size = new System.Drawing.Size(122, 21);
+            this.chkRecebeEmail.Size = new System.Drawing.Size(95, 17);
             this.chkRecebeEmail.TabIndex = 11;
             this.chkRecebeEmail.Text = "Recebe E-mail";
             this.chkRecebeEmail.UseVisualStyleBackColor = true;
@@ -161,28 +175,52 @@ namespace GUI
             // chkRecebeSMS
             // 
             this.chkRecebeSMS.AutoSize = true;
-            this.chkRecebeSMS.Location = new System.Drawing.Point(352, 275);
+            this.chkRecebeSMS.Location = new System.Drawing.Point(264, 223);
+            this.chkRecebeSMS.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.chkRecebeSMS.Name = "chkRecebeSMS";
-            this.chkRecebeSMS.Size = new System.Drawing.Size(112, 21);
+            this.chkRecebeSMS.Size = new System.Drawing.Size(90, 17);
             this.chkRecebeSMS.TabIndex = 12;
             this.chkRecebeSMS.Text = "Recebe SMS";
             this.chkRecebeSMS.UseVisualStyleBackColor = true;
             // 
             // btnInserir
             // 
-            this.btnInserir.Location = new System.Drawing.Point(256, 327);
+            this.btnInserir.Location = new System.Drawing.Point(118, 265);
+            this.btnInserir.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnInserir.Name = "btnInserir";
-            this.btnInserir.Size = new System.Drawing.Size(122, 32);
+            this.btnInserir.Size = new System.Drawing.Size(92, 26);
             this.btnInserir.TabIndex = 13;
             this.btnInserir.Text = "Inserir";
             this.btnInserir.UseVisualStyleBackColor = true;
             this.btnInserir.Click += new System.EventHandler(this.btnInserir_Click);
             // 
+            // btnExcluir
+            // 
+            this.btnExcluir.Location = new System.Drawing.Point(248, 267);
+            this.btnExcluir.Name = "btnExcluir";
+            this.btnExcluir.Size = new System.Drawing.Size(90, 23);
+            this.btnExcluir.TabIndex = 14;
+            this.btnExcluir.Text = "Excluir";
+            this.btnExcluir.UseVisualStyleBackColor = true;
+            this.btnExcluir.Click += new System.EventHandler(this.btnExcluir_Click);
+            // 
+            // btnAtualizar
+            // 
+            this.btnAtualizar.Location = new System.Drawing.Point(374, 267);
+            this.btnAtualizar.Name = "btnAtualizar";
+            this.btnAtualizar.Size = new System.Drawing.Size(93, 23);
+            this.btnAtualizar.TabIndex = 15;
+            this.btnAtualizar.Text = "Atualziar";
+            this.btnAtualizar.UseVisualStyleBackColor = true;
+            this.btnAtualizar.Click += new System.EventHandler(this.btnAtualizar_Click);
+            // 
             // frmCadastroPessoas
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(600, 366);
+            this.Controls.Add(this.btnAtualizar);
+            this.Controls.Add(this.btnExcluir);
             this.Controls.Add(this.btnInserir);
             this.Controls.Add(this.chkRecebeSMS);
             this.Controls.Add(this.chkRecebeEmail);
@@ -197,6 +235,7 @@ namespace GUI
             this.Controls.Add(this.lblEmail);
             this.Controls.Add(this.lblNome);
             this.Controls.Add(this.lblCodigo);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "frmCadastroPessoas";
             this.Text = "Cadastro de Pessoas";
             this.ResumeLayout(false);
@@ -220,5 +259,7 @@ namespace GUI
         private System.Windows.Forms.CheckBox chkRecebeEmail;
         private System.Windows.Forms.CheckBox chkRecebeSMS;
         private System.Windows.Forms.Button btnInserir;
+        private System.Windows.Forms.Button btnExcluir;
+        private System.Windows.Forms.Button btnAtualizar;
     }
 }
