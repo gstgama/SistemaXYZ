@@ -8,7 +8,8 @@
         <tr>
             <td>Código:</td>
             <td>
-                <asp:TextBox ID="txtCodigo" runat="server" Width="47px"></asp:TextBox>
+                <asp:TextBox ID="txtCodigo" runat="server" Width="47px" OnTextChanged="txtCodigo_TextChanged"></asp:TextBox>
+                <asp:Button ID="btnBuscar" runat="server" OnClick="btnBuscar_Click" Text="Buscar" />
             </td>
         </tr>
         <tr>
@@ -54,6 +55,13 @@
      <p>
 
          <asp:Button ID="btnInserir" runat="server" OnClick="btnInserir_Click" Text="Inserir" />
+
+         <asp:Button ID="btnAtualizar" runat="server" OnClick="btnAtualizar_Click" Text="Atualizar" />
+
+     </p>
+    <p>
+
+         <asp:Label ID="lblMensagem" runat="server" ForeColor="Red"></asp:Label>
 
      </p>  
 </asp:Content>

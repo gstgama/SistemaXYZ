@@ -46,21 +46,27 @@ namespace GUI
 
             //Avisar o usuario que deu bom
             MessageBox.Show("Pessoa inserida com sucesso!");
+            LimparCampos();
+            CarregarPessoas();
         }
 
         private void btnExcluir_Click(object sender, EventArgs e)
         {
             int codigo = Convert.ToInt32(txtCodigo.Text);
 
-            if (MessageBox.Show("Deseja realmente excluir este registro?", "Atenção", MessageBoxButtons.YesNo) == DialogResult.Yes) { 
+            if (MessageBox.Show("Deseja realmente excluir este registro?", "Atenção", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
 
-            PessoaDAL pDAL = new PessoaDAL();
-            pDAL.ExcluriPessoa(codigo);
+                PessoaDAL pDAL = new PessoaDAL();
+                pDAL.ExcluriPessoa(codigo);
 
-            MessageBox.Show("Pessoa excluida com sucesso!");
+                MessageBox.Show("Pessoa excluida com sucesso!");
 
                 //Metodo em uma linha.
                 //new PessoaDAL().ExcluirPessoa(Convert.ToInt32(txtCodigo.Text));
+
+                LimparCampos();
+                CarregarPessoas();
             }
         }
 
@@ -80,6 +86,71 @@ namespace GUI
             pDAL.AtualizarPessoa(objPessoa);
 
             MessageBox.Show("Pessoa atualizada com sucesso.");
+
+            LimparCampos();
+            CarregarPessoas();
+        }
+
+        private void frmCadastroPessoas_Load(object sender, EventArgs e)
+        {
+            CarregarPessoas();
+        }
+
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {
+            //Pegar o código a ser buscar
+            //int codigo = Convert.ToInt32(txtCodigo.Text);
+            if (int.TryParse(txtCodigo.Text, out int codigo))
+            {
+
+                //Criar um objeto PessoaDAL
+                PessoaDAL pDAL = new PessoaDAL();
+                Pessoa objPessoa = pDAL.SelecionarPessoaPeloCodigo(codigo);
+
+                //Verificar se o objPessoa esta nulo ou não.
+                if (objPessoa != null)
+                {
+                    txtNome.Text = objPessoa.Nome;
+                    txtEmail.Text = objPessoa.Email;
+                    rbtnMasculino.Checked = objPessoa.Sexo == "Masculino";
+                    rbtnFeminino.Checked = objPessoa.Sexo == "Feminino";
+                    cbEstadosCivis.Text = objPessoa.EstadoCivil;
+                    chkRecebeEmail.Checked = objPessoa.BtRecebeEmail;
+                    chkRecebeSMS.Checked = objPessoa.BtRecebeSMS;
+                }
+                else
+                {
+                    MessageBox.Show("Esta pessoa não existe");
+                    LimparCampos();
+                }
+            }
+        }
+        private void LimparCampos()
+        {
+            txtCodigo.Text = string.Empty;
+            txtNome.Text = string.Empty;
+            txtEmail.Text = string.Empty;
+            rbtnMasculino.Checked = true;
+            rbtnFeminino.Checked = false;
+            cbEstadosCivis.Text = string.Empty;
+            chkRecebeEmail.Checked = false;
+            chkRecebeSMS.Checked = false;
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            LimparCampos();
+        }
+
+        private void CarregarPessoas()
+        {
+            //Código para preencher o dataGridView com os dados da Lista
+
+            //Instanciar o objeto PessoaDAL
+            PessoaDAL pDAL = new PessoaDAL();
+
+            //Preencher o Source do dataGridView
+            dgvPessoas.DataSource = pDAL.ListarPessoas();
         }
     }
 }

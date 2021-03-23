@@ -31,6 +31,76 @@ namespace WebUI
             //Instanciar um objeto do PessoaDAL
             PessoaDAL pDAL = new PessoaDAL();
             pDAL.InserirPessoa(objPessoa);
+
+            LimparCampos();
+
+            lblMensagem.Text = "Pessoa inserida com sucesso.";
+        }
+
+        protected void txtCodigo_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void btnBuscar_Click(object sender, EventArgs e)
+        {
+            //Pegar o codigo que a pessoa deseja buscar.
+            int codigo = Convert.ToInt32(txtCodigo.Text);
+
+            PessoaDAL pDAL = new PessoaDAL();
+
+            //Executar o metodo de seleção.
+            Pessoa objPessoa = pDAL.SelecionarPessoaPeloCodigo(codigo);
+
+            //Verificar se o objeto não esta nulo.
+            if(objPessoa != null)
+            {
+                txtNome.Text = objPessoa.Nome;
+                txtEmail.Text = objPessoa.Email;
+                rblSexo.SelectedValue = objPessoa.Sexo;
+                ddlEstadosCivis.SelectedValue = objPessoa.EstadoCivil;
+                chkRecebeEmail.Checked = objPessoa.BtRecebeEmail;
+                chkRecebeSMS.Checked = objPessoa.BtRecebeSMS;
+            }
+            else
+            {
+                LimparCampos();
+
+                lblMensagem.Text = "Pessoa não encontrada";
+            }
+        }
+
+        private void LimparCampos()
+        {
+            txtCodigo.Text = string.Empty;
+            txtNome.Text = string.Empty;
+            txtEmail.Text = string.Empty;
+            rblSexo.SelectedIndex = 0;
+            ddlEstadosCivis.SelectedIndex = 0;
+            chkRecebeEmail.Checked = false;
+            chkRecebeSMS.Checked = false;
+
+            lblMensagem.Text = string.Empty;
+        }
+
+        protected void btnAtualizar_Click(object sender, EventArgs e)
+        {
+            Pessoa objPessoa = new Pessoa();
+
+            objPessoa.Codigo = Convert.ToInt32(txtCodigo.Text);
+            objPessoa.Nome = txtNome.Text;
+            objPessoa.Email = txtEmail.Text;
+            objPessoa.Sexo = rblSexo.SelectedValue;
+            objPessoa.EstadoCivil = ddlEstadosCivis.SelectedValue;
+            objPessoa.BtRecebeEmail = chkRecebeEmail.Checked;
+            objPessoa.BtRecebeSMS = chkRecebeSMS.Checked;
+
+            PessoaDAL pDAL = new PessoaDAL();
+            pDAL.AtualizarPessoa(objPessoa);
+
+            LimparCampos();
+
+            lblMensagem.Text = "Pessoa atualizada com sucesso.";
         }
     }
 }

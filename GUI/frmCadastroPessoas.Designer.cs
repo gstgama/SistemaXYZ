@@ -45,6 +45,10 @@ namespace GUI
             this.btnInserir = new System.Windows.Forms.Button();
             this.btnExcluir = new System.Windows.Forms.Button();
             this.btnAtualizar = new System.Windows.Forms.Button();
+            this.btnBuscar = new System.Windows.Forms.Button();
+            this.btnCancelar = new System.Windows.Forms.Button();
+            this.dgvPessoas = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvPessoas)).BeginInit();
             this.SuspendLayout();
             // 
             // lblCodigo
@@ -81,7 +85,7 @@ namespace GUI
             // txtCodigo
             // 
             this.txtCodigo.Location = new System.Drawing.Point(137, 54);
-            this.txtCodigo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtCodigo.Margin = new System.Windows.Forms.Padding(2);
             this.txtCodigo.Name = "txtCodigo";
             this.txtCodigo.Size = new System.Drawing.Size(76, 20);
             this.txtCodigo.TabIndex = 3;
@@ -89,7 +93,7 @@ namespace GUI
             // txtNome
             // 
             this.txtNome.Location = new System.Drawing.Point(137, 87);
-            this.txtNome.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtNome.Margin = new System.Windows.Forms.Padding(2);
             this.txtNome.MaxLength = 60;
             this.txtNome.Name = "txtNome";
             this.txtNome.Size = new System.Drawing.Size(219, 20);
@@ -98,7 +102,7 @@ namespace GUI
             // txtEmail
             // 
             this.txtEmail.Location = new System.Drawing.Point(137, 121);
-            this.txtEmail.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtEmail.Margin = new System.Windows.Forms.Padding(2);
             this.txtEmail.MaxLength = 100;
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(219, 20);
@@ -109,7 +113,7 @@ namespace GUI
             this.rbtnMasculino.AutoSize = true;
             this.rbtnMasculino.Checked = true;
             this.rbtnMasculino.Location = new System.Drawing.Point(137, 158);
-            this.rbtnMasculino.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.rbtnMasculino.Margin = new System.Windows.Forms.Padding(2);
             this.rbtnMasculino.Name = "rbtnMasculino";
             this.rbtnMasculino.Size = new System.Drawing.Size(73, 17);
             this.rbtnMasculino.TabIndex = 6;
@@ -121,7 +125,7 @@ namespace GUI
             // 
             this.rbtnFeminino.AutoSize = true;
             this.rbtnFeminino.Location = new System.Drawing.Point(273, 158);
-            this.rbtnFeminino.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.rbtnFeminino.Margin = new System.Windows.Forms.Padding(2);
             this.rbtnFeminino.Name = "rbtnFeminino";
             this.rbtnFeminino.Size = new System.Drawing.Size(67, 17);
             this.rbtnFeminino.TabIndex = 7;
@@ -156,7 +160,7 @@ namespace GUI
             "Casado",
             "Divorciado"});
             this.cbEstadosCivis.Location = new System.Drawing.Point(137, 188);
-            this.cbEstadosCivis.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cbEstadosCivis.Margin = new System.Windows.Forms.Padding(2);
             this.cbEstadosCivis.Name = "cbEstadosCivis";
             this.cbEstadosCivis.Size = new System.Drawing.Size(201, 21);
             this.cbEstadosCivis.TabIndex = 10;
@@ -165,7 +169,7 @@ namespace GUI
             // 
             this.chkRecebeEmail.AutoSize = true;
             this.chkRecebeEmail.Location = new System.Drawing.Point(137, 223);
-            this.chkRecebeEmail.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.chkRecebeEmail.Margin = new System.Windows.Forms.Padding(2);
             this.chkRecebeEmail.Name = "chkRecebeEmail";
             this.chkRecebeEmail.Size = new System.Drawing.Size(95, 17);
             this.chkRecebeEmail.TabIndex = 11;
@@ -176,7 +180,7 @@ namespace GUI
             // 
             this.chkRecebeSMS.AutoSize = true;
             this.chkRecebeSMS.Location = new System.Drawing.Point(264, 223);
-            this.chkRecebeSMS.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.chkRecebeSMS.Margin = new System.Windows.Forms.Padding(2);
             this.chkRecebeSMS.Name = "chkRecebeSMS";
             this.chkRecebeSMS.Size = new System.Drawing.Size(90, 17);
             this.chkRecebeSMS.TabIndex = 12;
@@ -186,7 +190,7 @@ namespace GUI
             // btnInserir
             // 
             this.btnInserir.Location = new System.Drawing.Point(118, 265);
-            this.btnInserir.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnInserir.Margin = new System.Windows.Forms.Padding(2);
             this.btnInserir.Name = "btnInserir";
             this.btnInserir.Size = new System.Drawing.Size(92, 26);
             this.btnInserir.TabIndex = 13;
@@ -196,7 +200,7 @@ namespace GUI
             // 
             // btnExcluir
             // 
-            this.btnExcluir.Location = new System.Drawing.Point(248, 267);
+            this.btnExcluir.Location = new System.Drawing.Point(215, 265);
             this.btnExcluir.Name = "btnExcluir";
             this.btnExcluir.Size = new System.Drawing.Size(90, 23);
             this.btnExcluir.TabIndex = 14;
@@ -206,7 +210,7 @@ namespace GUI
             // 
             // btnAtualizar
             // 
-            this.btnAtualizar.Location = new System.Drawing.Point(374, 267);
+            this.btnAtualizar.Location = new System.Drawing.Point(311, 265);
             this.btnAtualizar.Name = "btnAtualizar";
             this.btnAtualizar.Size = new System.Drawing.Size(93, 23);
             this.btnAtualizar.TabIndex = 15;
@@ -214,11 +218,43 @@ namespace GUI
             this.btnAtualizar.UseVisualStyleBackColor = true;
             this.btnAtualizar.Click += new System.EventHandler(this.btnAtualizar_Click);
             // 
+            // btnBuscar
+            // 
+            this.btnBuscar.Location = new System.Drawing.Point(228, 50);
+            this.btnBuscar.Name = "btnBuscar";
+            this.btnBuscar.Size = new System.Drawing.Size(75, 23);
+            this.btnBuscar.TabIndex = 16;
+            this.btnBuscar.Text = "Buscar";
+            this.btnBuscar.UseVisualStyleBackColor = true;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
+            // 
+            // btnCancelar
+            // 
+            this.btnCancelar.Location = new System.Drawing.Point(410, 265);
+            this.btnCancelar.Name = "btnCancelar";
+            this.btnCancelar.Size = new System.Drawing.Size(75, 23);
+            this.btnCancelar.TabIndex = 17;
+            this.btnCancelar.Text = "Cancelar";
+            this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
+            // 
+            // dgvPessoas
+            // 
+            this.dgvPessoas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvPessoas.Location = new System.Drawing.Point(12, 306);
+            this.dgvPessoas.Name = "dgvPessoas";
+            this.dgvPessoas.ReadOnly = true;
+            this.dgvPessoas.Size = new System.Drawing.Size(641, 224);
+            this.dgvPessoas.TabIndex = 18;
+            // 
             // frmCadastroPessoas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(600, 366);
+            this.ClientSize = new System.Drawing.Size(665, 542);
+            this.Controls.Add(this.dgvPessoas);
+            this.Controls.Add(this.btnCancelar);
+            this.Controls.Add(this.btnBuscar);
             this.Controls.Add(this.btnAtualizar);
             this.Controls.Add(this.btnExcluir);
             this.Controls.Add(this.btnInserir);
@@ -235,9 +271,11 @@ namespace GUI
             this.Controls.Add(this.lblEmail);
             this.Controls.Add(this.lblNome);
             this.Controls.Add(this.lblCodigo);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "frmCadastroPessoas";
             this.Text = "Cadastro de Pessoas";
+            this.Load += new System.EventHandler(this.frmCadastroPessoas_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvPessoas)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -261,5 +299,8 @@ namespace GUI
         private System.Windows.Forms.Button btnInserir;
         private System.Windows.Forms.Button btnExcluir;
         private System.Windows.Forms.Button btnAtualizar;
+        private System.Windows.Forms.Button btnBuscar;
+        private System.Windows.Forms.Button btnCancelar;
+        private System.Windows.Forms.DataGridView dgvPessoas;
     }
 }

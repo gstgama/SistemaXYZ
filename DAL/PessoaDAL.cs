@@ -77,5 +77,82 @@ namespace DAL
 
             conn.Close();
         }
+
+        public Pessoa SelecionarPessoaPeloCodigo(int codigo)
+        {
+            Pessoa objPessoa = null;
+
+            SqlConnection conn = new SqlConnection(connectionString);
+
+            conn.Open();
+
+            string sql = "SELECT * FROM Pessoas WHERE codigo = @codigo";
+
+            SqlCommand cmd = new SqlCommand(sql, conn);
+            cmd.Parameters.AddWithValue("@codigo", codigo);
+
+            //Executar o comando, aguardando um retorno para leitura.
+            SqlDataReader dr = cmd.ExecuteReader();
+
+            //Se existe linhas no dr, e se pode ser lida.
+            if(dr.HasRows && dr.Read())
+            {
+                objPessoa = new Pessoa();
+                objPessoa.Codigo = codigo;
+                objPessoa.Nome = dr["Nome"].ToString(); //"Nome" = nome da coluna do banco de dados.
+                objPessoa.Email = dr["Email"].ToString();
+                objPessoa.Sexo = dr["Sexo"].ToString();
+                objPessoa.EstadoCivil = dr["EstadoCivil"].ToString();
+                objPessoa.BtRecebeEmail = Convert.ToBoolean(dr["BtRecebeEmail"]);
+                objPessoa.BtRecebeSMS = Convert.ToBoolean(dr["BtRecebeSMS"]);
+            }
+
+            conn.Close();
+
+            return objPessoa;
+        }
+
+        public List<Pessoa> ListarPessoas()
+        {
+            //Instanciar uma lista do tipo pessoa.
+            List<Pessoa> lista = new List<Pessoa>();
+
+            SqlConnection conn = new SqlConnection(connectionString);
+
+            conn.Open();
+
+            string sql = "SELECT * FROM Pessoas";
+
+            SqlCommand cmd = new SqlCommand(sql, conn);
+
+            //Objeto SqlDataReader para receber os resultados do banco.
+            SqlDataReader dr = cmd.ExecuteReader();
+
+            //Verificar se o dr tem linhas
+            if (dr.HasRows)
+            {
+                //Criar um objeto auxiliar só para preencher os dados da pessoas.
+                Pessoa p = null;
+
+                //Ler cada uma das linhas até que chegue ao final do arquivo.
+                while (dr.Read())
+                {
+                    p = new Pessoa();
+                    p.Codigo = Convert.ToInt32(dr["Codigo"]);
+                    p.Nome = dr["Nome"].ToString();
+                    p.Email = dr["Email"].ToString();
+                    p.Sexo = dr["Sexo"].ToString();
+                    p.EstadoCivil = dr["EstadoCivil"].ToString();
+                    p.BtRecebeEmail = Convert.ToBoolean(dr["BtRecebeEmail"]);
+                    p.BtRecebeSMS = Convert.ToBoolean(dr["BtRecebeSMS"]);
+
+                    lista.Add(p);
+                }
+            }
+            conn.Close();
+
+            return lista;
+        }
+
     }
 }
