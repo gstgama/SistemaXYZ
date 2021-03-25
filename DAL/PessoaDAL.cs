@@ -5,12 +5,13 @@ using System.Text;
 using System.Threading.Tasks;
 using Models;
 using System.Data.SqlClient;
+using System.Configuration;
 
 namespace DAL
 {
     public class PessoaDAL
     {
-        private string connectionString = @"Data Source=(localdb)\ProjectsV13;Initial Catalog=BDSistemaXYZ;Integrated Security=true";
+        private string connectionString = ConfigurationManager.ConnectionStrings["BDSistemaXYZConnectionString"].ConnectionString;
         
         public void InserirPessoa(Pessoa objPessoa)
         {

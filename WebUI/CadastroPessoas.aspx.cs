@@ -13,7 +13,13 @@ namespace WebUI
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            //Executar o codigo carregar pessoas, somente quando abrir a pagina pela primeira vez
+            //ou seja, quando não for um PostBack
 
+            if (!Page.IsPostBack)
+            {
+                CarregarPessoas();
+            }
         }
 
         protected void btnInserir_Click(object sender, EventArgs e)
@@ -35,6 +41,8 @@ namespace WebUI
             LimparCampos();
 
             lblMensagem.Text = "Pessoa inserida com sucesso.";
+
+            CarregarPessoas();
         }
 
         protected void txtCodigo_TextChanged(object sender, EventArgs e)
@@ -53,7 +61,7 @@ namespace WebUI
             Pessoa objPessoa = pDAL.SelecionarPessoaPeloCodigo(codigo);
 
             //Verificar se o objeto não esta nulo.
-            if(objPessoa != null)
+            if (objPessoa != null)
             {
                 txtNome.Text = objPessoa.Nome;
                 txtEmail.Text = objPessoa.Email;
@@ -101,6 +109,41 @@ namespace WebUI
             LimparCampos();
 
             lblMensagem.Text = "Pessoa atualizada com sucesso.";
+
+            CarregarPessoas();
         }
+
+        protected void btnExcluir_Click(object sender, EventArgs e)
+        {
+            //Pegar o codigo a ser excluido
+            int codigo = Convert.ToInt32(txtCodigo.Text);
+
+            //Instanciar um objeto do PessoaDAL
+            PessoaDAL pDAL = new PessoaDAL();
+
+            //Executar o comando de exclusão, passando o codigo a ser excluido.
+            pDAL.ExcluriPessoa(codigo);
+
+            //Limpar os campos
+            LimparCampos();
+
+            //Escrever mensagem que foi excluido.
+            lblMensagem.Text = "Pessoa Excluída com sucesso.";
+
+            CarregarPessoas();
+        }
+
+        private void CarregarPessoas()
+        {
+            //Instanciar o objeto PessoaDAL
+            PessoaDAL pDAL = new PessoaDAL();
+
+            //Preencher o DataSource do GridView com uma Lista de Pessoas
+            gvPessoas.DataSource = pDAL.ListarPessoas();
+
+            //Precisamos mandar atualizar a tela
+            gvPessoas.DataBind();
+        }
+
     }
 }
